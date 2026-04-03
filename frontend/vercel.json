@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:ico|png|jpeg|gif|svg)$).*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ]
+}
